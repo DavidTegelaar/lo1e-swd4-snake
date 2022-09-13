@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 
 let snakeX = 190;
 let snakeY = 190;
+let direction = "down";
 
 function drawBackground() {
     ctx.fillStyle = "black";
@@ -16,7 +17,15 @@ function drawSnake() {
 
 
 function update() {
-    snakeX += 20;
+    if (direction == "right") {
+        snakeX += 20;
+    } else if (direction == "left") {
+        snakeX -= 20;
+    } else if (direction == "up") {
+        snakeY -= 20;
+    } else if (direction == "down") {
+        snakeY += 20;
+    }
 
     drawBackground();
     drawSnake();
