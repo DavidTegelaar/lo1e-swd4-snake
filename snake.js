@@ -3,6 +3,10 @@ const ctx = canvas.getContext("2d");
 
 let snakeX = 200;
 let snakeY = 200;
+
+let foodX;
+let foodY;
+
 let direction = null;
 
 function drawBackground() {
@@ -62,6 +66,12 @@ function changeDirection(event) {
 function gameOver() {
     direction = null;
     alert("Game Over");
+}
+
+function spawnFood() {
+    foodX = Math.floor(Math.random() * 20) * 20;
+    foodY = Math.floor(Math.random() * 20) * 20;
+
 }
 
 drawBackground();
