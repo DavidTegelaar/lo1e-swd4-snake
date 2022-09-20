@@ -1,8 +1,8 @@
 const canvas = document.getElementById("snake");
 const ctx = canvas.getContext("2d");
 
-let snakeX = 190;
-let snakeY = 190;
+let snakeX = 200;
+let snakeY = 200;
 let direction = null;
 
 function drawBackground() {
@@ -18,13 +18,29 @@ function drawSnake() {
 
 function update() {
     if (direction == "right") {
-        snakeX += 20;
+        if (snakeX < 380) {
+            snakeX += 20;
+        } else {
+            alert("Game Over");
+        }
     } else if (direction == "left") {
-        snakeX -= 20;
+        if (snakeX > 0) {
+            snakeX -= 20;
+        } else {
+            alert("Game Over");
+        }
     } else if (direction == "up") {
-        snakeY -= 20;
+        if (snakeY > 0) {
+            snakeY -= 20;
+        } else {
+            alert("Game Over");
+        }
     } else if (direction == "down") {
-        snakeY += 20;
+        if (snakeY < 380) {
+            snakeY += 20;
+        } else {
+            alert("Game Over");
+        }
     }
 
     drawBackground();
