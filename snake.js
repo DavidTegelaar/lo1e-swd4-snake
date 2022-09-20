@@ -49,6 +49,7 @@ function update() {
 
     drawBackground();
     drawSnake();
+    drawFood();
 }
 
 function changeDirection(event) {
@@ -71,10 +72,16 @@ function gameOver() {
 function spawnFood() {
     foodX = Math.floor(Math.random() * 20) * 20;
     foodY = Math.floor(Math.random() * 20) * 20;
+}
 
+function drawFood() {
+    ctx.fillStyle = "Red";
+    ctx.fillRect(foodX, foodY, 20, 20);
 }
 
 drawBackground();
 drawSnake();
 setInterval(update, 300);
 addEventListener("keydown", changeDirection);
+drawFood();
+spawnFood();
